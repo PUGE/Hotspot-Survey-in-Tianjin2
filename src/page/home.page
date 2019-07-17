@@ -4,7 +4,7 @@
   temple(name="editor", src="./src/module/editor.owo")
   .line
   .content.w1000
-    temple(name="imageTitle", imgsrc="@&title1.png&", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
+    temple(name="imageTitle", imgsrc="@|title1.png|", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
     .vote
       p.text-1.text 您的基本情况？
       //- .button-1.button
@@ -17,7 +17,7 @@
       //-   a(href="", target="_blank")
     //- 广告
     temple(name="show", src="http://154.8.196.163:8004/public/460d423b76bb31212445358f55f7ccc8.page")
-    temple(name="imageTitle", imgsrc="@&title2.png&", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
+    temple(name="imageTitle", imgsrc="@|title2.png|", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
     .news-list.clear
       .news-list-item
         temple(name="list", src="http://154.8.196.163:8004/public/6b922bb0f7baac30253a3128099e67a3.page")
@@ -25,13 +25,13 @@
         temple(name="list", src="http://154.8.196.163:8004/public/6b922bb0f7baac30253a3128099e67a3.page")
       .more
         a(href="", target="_blank") 查看更多
-    temple(name="imageTitle", imgsrc="@&title3.png&", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
+    temple(name="imageTitle", imgsrc="@|title3.png|", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
     //- logo条
     .logo-bar
-      img(src="@&logo-bar.png&", height="73", width="890")
+      img(src="@|logo-bar.png|", height="73", width="890")
     .border-title 扫一扫，下载手机客户端
     .qr-box
-      img(src="@&qr.jpg&")
+      img(src="@|qr.jpg|")
   temple(name="copyright", src="http://154.8.196.163:8004/public/ae9b992ba8eea6a6996d4e59ff409199.page")
 
 </template>
@@ -56,13 +56,13 @@
   margin-bottom: 70px;
   position: relative;
   background-position: center;
-  background-image: url('@&vote.png&');
+  background-image: url('@|vote.png|');
 }
 .button {
   width: 146px;
   height: 35px;
   position: absolute;
-  background-image: url('@&button.png&');
+  background-image: url('@|button.png|');
   a {
     display: block;
     width: 100%;
@@ -134,7 +134,7 @@
   text-align: center;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('@&border.svg&');
+  background-image: url('@|border.svg|');
   margin-bottom: 40px;
 }
 .qr-box {

@@ -14,10 +14,10 @@ body {
   background-size: 100%;
   background-position: center 40px;
   min-width: 1200px;
-  background-image: url('@|bg.jpg|');
+  background-image: url('../resource/bg.jpg');
 }
 html {
-  background-image: url('@|bg-bottom.jpg|');
+  background-image: url('../resource/bg-bottom.jpg');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-color: white;
@@ -86,12 +86,12 @@ footer[template=copyright] {
 
 .min .one {
   background-size: 100%;
-  background-image: url('@|min-one-bg.jpg|');
+  background-image: url('../resource/min-one-bg.jpg');
 }
 
 .min .two {
   background-size: 100% 100%;
-  background-image: url('@|min-two-bg.jpg|');
+  background-image: url('../resource/min-two-bg.jpg');
 }
 .min .editor-note[template="editor"] {
   width: 80%;

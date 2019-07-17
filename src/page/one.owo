@@ -1,0 +1,34 @@
+<template lang="pug">
+.one
+  img(class="text", src="@|min-one-text.png|")
+  img(class="logo", src="@|logo.png|")
+</template>
+
+<script>
+  module.exports = {
+    data: {
+    },
+    created: function () {
+      owo.tool.animate("zoomIn", this.query('.text')[0])
+    }
+  }
+</script>
+
+<style lang="less">
+.text {
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 26%;
+}
+.logo {
+  width: 55%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10%;
+  margin: 0 auto;
+}
+</style>

@@ -2,7 +2,7 @@ module.exports = {
   // 项目根目录
   root: "/src",
   // 项目入口文件
-  entry: "home",
+  entry: "one",
   // 页面标题
   title: '{TAG_14226_TAG}',
   // 输出目录
@@ -17,7 +17,7 @@ module.exports = {
     },
     {
       name: 'viewport',
-      content: 'width=device-width, initial-scale=0, maximum-scale=1, user-scalable=yes,shrink-to-fit=no',
+      content: 'initial-scale=1, user-scalable=no, maximum-scale=1',
     },
     {
       name: 'format-detection',
@@ -121,8 +121,18 @@ module.exports = {
       // 是否为页面主入口
       main: true,
       isPage: true,
-      name: 'home',
-      src: './src/page/home.page'
+      name: 'one',
+      src: './src/page/one.owo'
+    },
+    {
+      isPage: true,
+      name: 'two',
+      src: './src/page/two.owo'
+    },
+    {
+      isPage: true,
+      name: 'three',
+      src: './src/page/three.owo'
     }
   ],
   // 调试模式配置

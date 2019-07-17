@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li @for="item in data.itemLiat">
+    <li :for="item in data.itemLiat">
       <a target="_blank" href="{{item.url}}">{{item.name}}</a>
     </li>
   </ul>

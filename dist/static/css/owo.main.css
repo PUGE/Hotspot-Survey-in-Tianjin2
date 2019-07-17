@@ -1,0 +1,363 @@
+body, html, .ox {
+  padding: 0;
+  margin: 0;
+}
+
+.owo-animation {
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.owo-animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.owo-animation-forward {
+  z-index: 99;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+/* 清除浮动 */
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+[template="one"] .text {
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 26%;
+}
+
+[template="one"] .logo {
+  width: 55%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10%;
+  margin: 0 auto;
+}
+.title-bar[template="topBar"] {
+  height: 40px;
+  background-color: #ffffff;
+}
+
+[template="topBar"] .title-bar-content {
+  width: 1000px;
+  height: 40px;
+  margin: auto;
+}
+
+[template="topBar"] img {
+  margin: 5px 10px;
+  height: 30px;
+}
+
+[template="topBar"] a {
+  float: left;
+  display: block;
+}
+
+[template="topBar"] .link {
+  color: rgba(102, 102, 102, 1.00);
+  font-size: 14px;
+  margin: 0 10px;
+  line-height: 40px;
+}
+
+[template="topBar"] a {
+  color: #333;
+  text-decoration: none;
+}
+.editor-note[template="editor"] {
+  width: 53%;
+  color: white;
+  font-size: 20px;
+  font-family: "Microsoft YaHei";
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 0 auto;
+}
+
+.editor-note[template="editor"] img {
+  display: inline;
+  padding-right: 15px;
+}
+
+.editor-note[template="editor"] a {
+  display: inline;
+  color: #7f1c34;
+}
+
+[template="editor"] p {
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+  display: inline;
+  color: #3a7a60;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+[template="editor"] strong {
+  color: #7f1c34;
+  font-weight: normal;
+  font-size: 19px;
+}
+aside[template="imageTitle"] {
+  height: 83px;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+[template="imageTitle"] a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+[template="two"] .w1000 {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+[template="two"] .editor-note {
+  margin-bottom: 40px;
+}
+
+[template="two"] .line {
+  height: 15px;
+  background-color: #b0230a;
+  margin-bottom: 40px;
+}
+
+[template="two"] .vote {
+  height: 500px;
+  width: 100%;
+  margin-bottom: 70px;
+  position: relative;
+  background-position: center;
+  background-image: url('../resource/vote.png');
+}
+
+[template="two"] .button {
+  width: 146px;
+  height: 35px;
+  position: absolute;
+  background-image: url('../resource/button.png');
+}
+
+[template="two"] .button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+[template="two"] .button-1 {
+  left: 80px;
+  bottom: 10px;
+}
+
+[template="two"] .button-2 {
+  bottom: 10px;
+  left: 445px;
+}
+
+[template="two"] .button-3 {
+  bottom: 10px;
+  left: 795px;
+}
+
+[template="two"] .text {
+  font-size: 27px;
+  line-height: 30px;
+  font-family: 'SimHei';
+  width: 230px;
+  text-align: center;
+  position: absolute;
+}
+
+[template="two"] .text-1 {
+  left: 40px;
+  top: 80px;
+}
+
+[template="two"] .text-2 {
+  left: 395px;
+  top: 80px;
+}
+
+[template="two"] .text-3 {
+  left: 740px;
+  top: 80px;
+}
+.show[template="show"] {
+  height: 85px;
+  background-color: #c2c1c1;
+  text-align: center;
+  line-height: 85px;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+}
+
+[template="show"] a,
+[template="show"] img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+[template="show"] a:hover {
+  color: white;
+  text-decoration: none;
+}
+ul[template="list"] {
+  padding: 0;
+  margin: 0;
+}
+
+[template="list"] li {
+  color: #595757;
+  line-height: 38px;
+  font-size: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+[template="list"] li a {
+  color: black;
+  text-decoration: none;
+  font-family: 'Microsoft YaHei';
+  font-size: 16px;
+}
+
+[template="list"] li a:hover {
+  color: #c00;
+  text-decoration: underline;
+}
+
+[template="list"] li .time {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  font-size: 13px;
+  clear: both;
+}
+
+[template="list"] li {
+  overflow: hidden;
+  height: 38px;
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  padding-left: 20px;
+  background-image: url('http://opinion.people.com.cn/img/MAIN/2014/06/114590/images/dot.gif');
+}
+
+[template="list"] a {
+  height: 36px;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+}
+
+ul[template="list"] {
+  padding: 0;
+}
+aside[template="imageTitle1"] {
+  height: 83px;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+[template="imageTitle1"] a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+footer[template="copyright"] {
+  color: #000000;
+  font-size: 12px;
+  position: relative;
+}
+
+[template="copyright"] p {
+  margin: 12px 0;
+  line-height: 30px;
+  text-align: center;
+}
+[template="three"] .show {
+  margin-bottom: 60px;
+}
+
+[template="three"] .news-list {
+  background-color: #f2f6ff;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+[template="three"] .news-list .news-list-item {
+  width: 46%;
+  padding: 0 2%;
+  float: left;
+}
+
+[template="three"] .news-list .more {
+  position: absolute;
+  color: #3b6ea3;
+  font-size: 18px;
+  font-weight: bold;
+  right: 10px;
+  bottom: 10px;
+}
+
+[template="three"] .logo-bar {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+[template="three"] .border-title {
+  font-size: 28px;
+  line-height: 50px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../resource/border.svg');
+  margin-bottom: 40px;
+}
+
+[template="three"] .qr-box {
+  text-align: center;
+  margin-bottom: 40px;
+}
