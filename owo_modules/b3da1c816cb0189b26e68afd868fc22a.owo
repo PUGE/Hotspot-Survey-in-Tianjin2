@@ -1,0 +1,21 @@
+<template>
+  <aside>
+    <a href="" target="_blank">
+      <img height="83" src="{{prop.imgsrc}}">
+    </a>
+  </aside>
+</template>
+
+<style>
+aside {
+  height: 83px;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+</style>

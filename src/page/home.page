@@ -1,0 +1,144 @@
+<template lang="pug">
+.home
+  temple(name="topBar", logo="http://www.people.com.cn/img/MAIN/2014/06/114539/images/nav/logo_rmw.png",  src="http://154.8.196.163:8004/public/c96a8344c303d3b4769da9903c0d2c5a.page")
+  temple(name="editor", src="./src/module/editor.owo")
+  .line
+  .content.w1000
+    temple(name="imageTitle", imgsrc="@&title1.png&", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
+    .vote
+      p.text-1.text 您的基本情况？
+      //- .button-1.button
+      //-   a(href="", target="_blank")
+      p.text-2.text 您最关心身边哪些民生问题？
+      .button-2.button
+        a(href="", target="_blank")
+      p.text-3.text 您对网上群众工作平台有哪些建议？
+      //- .button-3.button
+      //-   a(href="", target="_blank")
+    //- 广告
+    temple(name="show", src="http://154.8.196.163:8004/public/460d423b76bb31212445358f55f7ccc8.page")
+    temple(name="imageTitle", imgsrc="@&title2.png&", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
+    .news-list.clear
+      .news-list-item
+        temple(name="list", src="http://154.8.196.163:8004/public/6b922bb0f7baac30253a3128099e67a3.page")
+      .news-list-item
+        temple(name="list", src="http://154.8.196.163:8004/public/6b922bb0f7baac30253a3128099e67a3.page")
+      .more
+        a(href="", target="_blank") 查看更多
+    temple(name="imageTitle", imgsrc="@&title3.png&", src="http://154.8.196.163:8004/public/df5c7fbfc3e99ba23ae509146e1ae44f.page")
+    //- logo条
+    .logo-bar
+      img(src="@&logo-bar.png&", height="73", width="890")
+    .border-title 扫一扫，下载手机客户端
+    .qr-box
+      img(src="@&qr.jpg&")
+  temple(name="copyright", src="http://154.8.196.163:8004/public/ae9b992ba8eea6a6996d4e59ff409199.page")
+
+</template>
+
+
+<style lang="less">
+.w1000 {
+  width: 1000px;
+  margin: 0 auto;
+}
+.editor-note {
+  margin-bottom: 40px;
+}
+.line {
+  height: 15px;
+  background-color: #b0230a;
+  margin-bottom: 40px;
+}
+.vote {
+  height: 500px;
+  width: 100%;
+  margin-bottom: 70px;
+  position: relative;
+  background-position: center;
+  background-image: url('@&vote.png&');
+}
+.button {
+  width: 146px;
+  height: 35px;
+  position: absolute;
+  background-image: url('@&button.png&');
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+.button-1 {
+  left: 80px;
+  bottom: 10px;
+}
+.button-2 {
+  bottom: 10px;
+  left: 445px;
+}
+.button-3 {
+  bottom: 10px;
+  left: 795px;
+}
+.text {
+  font-size: 27px;
+  line-height: 30px;
+  font-family: 'SimHei';
+  width: 230px;
+  text-align: center;
+  position: absolute;
+  
+}
+.text-1 {
+  left: 40px;
+  top: 80px;
+}
+.text-2 {
+  left: 395px;
+  top: 80px;
+}
+.text-3 {
+  left: 740px;
+  top: 80px;
+}
+.show {
+  margin-bottom: 60px;
+}
+.news-list {
+  background-color: #f2f6ff;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  .news-list-item {
+    width: 46%;
+    padding: 0 2%;
+    float: left;
+  }
+  .more {
+    position: absolute;
+    color: #3b6ea3;
+    font-size: 18px;
+    font-weight: bold;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+.logo-bar {
+  text-align: center;
+  margin-bottom: 100px;
+}
+.border-title {
+  font-size: 28px;
+  line-height: 50px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('@&border.svg&');
+  margin-bottom: 40px;
+}
+.qr-box {
+  text-align: center;
+  margin-bottom: 40px;
+}
+</style>
