@@ -1,10 +1,10 @@
-// Wed Jul 17 2019 17:16:26 GMT+0800 (GMT+08:00)
+// Thu Jul 18 2019 15:02:52 GMT+0800 (GMT+08:00)
 
 "use strict";
 
 // 存储页面基本信息
 var owo = {
-  // 页面默认入口
+  // 页面默认入口 如果没有设置 则取第一个页面为默认页面
   entry: "one",
   // 全局方法变量
   tool: {},
@@ -49,6 +49,7 @@ owo.script = {
       },
       "imageTitle": {
         "prop": {
+          "class": "image-title-1",
           "imgsrc": "./static/resource/title2.png"
         }
       },

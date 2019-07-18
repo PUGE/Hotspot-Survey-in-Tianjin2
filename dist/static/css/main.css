@@ -84,8 +84,8 @@ footer[template=copyright] {
   display: none;
 }
 
-.min .one {
-  background-size: 100%;
+.min .one, .min .three {
+  background-size: 100% 100%;
   background-image: url('../resource/min-one-bg.jpg');
 }
 
@@ -109,11 +109,11 @@ footer[template=copyright] {
 .min .editor-note[template="editor"] img {
   display: none;
 }
-.min aside[template="imageTitle"] {
+.min aside[template="imageTitle"], .min aside[template="imageTitle1"] {
   height: 60px;
   position: relative;
 }
-.min aside[template="imageTitle"] img {
+.min aside[template="imageTitle"] img, .min aside[template="imageTitle1"] img {
   height: 40px;
   position: absolute;
   left: 0;
@@ -121,6 +121,7 @@ footer[template=copyright] {
   top: 0;
   bottom: 0;
   margin: auto;
+  padding: 0;
 }
 
 .min [template="two"] .line {
@@ -167,4 +168,40 @@ footer[template=copyright] {
   left: 0;
   right: 0;
   margin: auto;
+}
+
+.min [template="three"] .news-list, .min [template="three"] .show, .min [template="three"] .image-title-1 {
+  display: none;
+}
+
+.min [template="three"] .logo-bar img {
+  margin: 7px 4%;
+  height: unset;
+  width: 37%;
+}
+
+.min [template="three"] .logo-bar {
+  margin-bottom: 10px;
+}
+
+.min [template="three"] .border-title {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.min [template="three"] .qr-box img {
+  width: 30vw;
+}
+
+.min [template="three"] aside {
+  padding: 0;
+  margin-top: 25vw;
+}
+
+.min footer[template=copyright] {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  left: 0;
+  right: 0;
 }
