@@ -1,4 +1,4 @@
-// Thu Jul 18 2019 15:02:52 GMT+0800 (GMT+08:00)
+// Thu Jul 18 2019 16:39:03 GMT+0800 (GMT+08:00)
 
 "use strict";
 
@@ -21,10 +21,29 @@ owo.script = {
   "one": {
     "created": function created() {
       owo.tool.animate("zoomIn", this.query('.text')[0]);
+      owo.tool.touch({
+        el: this.$el,
+        end: function end(e) {
+          if (e.swipe[1] < -100) {
+            owo.go('two', 'moveToTop', 'moveFromBottom', 'moveToBottom', 'moveFromTop');
+          }
+        }
+      });
     }
   },
   "two": {
-    "created": function created() {},
+    "created": function created() {
+      owo.tool.touch({
+        el: this.$el,
+        end: function end(e) {
+          if (e.swipe[1] < -100) {
+            owo.go('three', 'moveToTop', 'moveFromBottom', 'moveToBottom', 'moveFromTop');
+          } else if (e.swipe[1] > 100) {
+            owo.go('one', 'moveToBottom', 'moveFromTop', 'moveToTop', 'moveFromBottom');
+          }
+        }
+      });
+    },
     "template": {
       "topBar": {
         "prop": {
@@ -42,7 +61,19 @@ owo.script = {
     }
   },
   "three": {
-    "created": function created() {},
+    "created": function created() {
+      owo.tool.touch({
+        el: this.$el,
+        end: function end(e) {
+          if (e.swipe[1] > 100) {
+            owo.go('two', 'moveToBottom', 'moveFromTop', 'moveToTop', 'moveFromBottom');
+          }
+        }
+      });
+    },
+    "show": function show() {
+      console.log('显示');
+    },
     "template": {
       "show": {
         "prop": {}
@@ -151,10 +182,21 @@ var _owo = {
 
   /* 运行页面初始化方法 */
   runCreated: function runCreated(pageFunction) {
-    pageFunction.created.apply(_owo.assign(pageFunction, {
-      data: pageFunction.data,
-      activePage: window.owo.activePage
-    }));
+    // 确保created事件只被执行一次
+    if (pageFunction["_isCreated"]) {
+      if (!pageFunction.show) return;
+      pageFunction.show.apply(_owo.assign(pageFunction, {
+        data: pageFunction.data,
+        activePage: window.owo.activePage
+      }));
+    } else {
+      pageFunction["_isCreated"] = true;
+      if (!pageFunction.created) return;
+      pageFunction.created.apply(_owo.assign(pageFunction, {
+        data: pageFunction.data,
+        activePage: window.owo.activePage
+      }));
+    }
   }
   /* owo事件处理 */
   // 参数1: 当前正在处理的dom节点
@@ -373,35 +415,140 @@ if (/iPhone\sOS.*QQ[^B]/.test(navigator.userAgent)) {
   window.onpopstate = _owo.hashchange;
 } else {
   window.onhashchange = _owo.hashchange;
-}
+} // 隐藏旧页面，显示新页面
 
-function switchPage(oldUrlParam, newUrlParam) {
-  var oldPage = oldUrlParam ? oldUrlParam.split('&')[0] : owo.entry;
-  var newPage = newUrlParam ? newUrlParam.split('&')[0] : owo.entry; // 查找页面跳转前的page页(dom节点)
 
-  var oldDom = document.getElementById('o-' + oldPage);
-
+function dispalyEffect(oldDom, newDom) {
   if (oldDom) {
     // 隐藏掉旧的节点
     oldDom.style.display = 'none';
   } // 查找页面跳转后的page
 
 
-  var newDom = document.getElementById('o-' + newPage); // console.log(newDom)
+  newDom.style.display = 'block';
+} // 切换页面动画
 
-  if (newDom) {
-    // 隐藏掉旧的节点
-    newDom.style.display = 'block';
+
+function animation(oldDom, newDom, animationIn, animationOut, forward) {
+  // 动画延迟
+  var delay = 0; // 获取父元素
+
+  var parentDom = newDom.parentElement;
+
+  if (!oldDom) {
+    console.error('旧页面不存在!');
+  }
+
+  oldDom.addEventListener("animationend", oldDomFun);
+  newDom.addEventListener("animationend", newDomFun);
+  oldDom.style.position = 'absolute';
+  newDom.style.display = 'block';
+  newDom.style.position = 'absolute'; // 给即将生效的页面加上“未来”标识
+
+  if (forward) {
+    newDom.classList.add('owo-animation-forward');
   } else {
+    oldDom.classList.add('owo-animation-forward');
+  } // document.body.style.overflow = 'hidden'
+
+
+  parentDom.style.perspective = '1200px';
+  oldDom.classList.add('owo-animation');
+  animationIn.forEach(function (value) {
+    //判断是否为延迟属性
+    if (value.startsWith('delay')) {
+      var tempDelay = parseInt(value.slice(5));
+      if (delay < tempDelay) delay = tempDelay;
+    }
+
+    oldDom.classList.add('o-page-' + value);
+  });
+  newDom.classList.add('owo-animation');
+  animationOut.forEach(function (value) {
+    if (value.startsWith('delay')) {
+      var tempDelay = parseInt(value.slice(5));
+      if (delay < tempDelay) delay = tempDelay;
+    }
+
+    newDom.classList.add('o-page-' + value);
+  }); // 旧DOM执行函数
+
+  function oldDomFun(e) {
+    // 排除非框架引起的结束事件
+    if (e.target.getAttribute('template')) {
+      // 移除监听
+      oldDom.removeEventListener('animationend', oldDomFun, false); // 延迟后再清除，防止动画还没完成
+
+      setTimeout(function () {
+        oldDom.style.display = 'none'; // console.log(oldDom)
+
+        oldDom.style.position = '';
+        oldDom.classList.remove('owo-animation');
+        oldDom.classList.remove('owo-animation-forward');
+        parentDom.style.perspective = ''; // 清除临时设置的class
+
+        animationIn.forEach(function (value) {
+          oldDom.classList.remove('o-page-' + value);
+        });
+      }, delay);
+    }
+  } // 新DOM执行函数
+
+
+  function newDomFun() {
+    // 移除监听
+    newDom.removeEventListener('animationend', newDomFun, false); // 延迟后再清除，防止动画还没完成
+
+    setTimeout(function () {
+      // 清除临时设置的style
+      newDom.style.position = '';
+      newDom.classList.remove('owo-animation');
+      newDom.classList.remove('owo-animation-forward');
+      animationOut.forEach(function (value) {
+        newDom.classList.remove('o-page-' + value);
+      });
+    }, delay);
+  }
+} // 切换页面前的准备工作
+
+
+function switchPage(oldUrlParam, newUrlParam) {
+  var oldPage = oldUrlParam ? oldUrlParam.split('&')[0] : owo.entry;
+  var newPage = newUrlParam ? newUrlParam.split('&')[0] : owo.entry; // console.log(oldPage, newPage)
+
+  var oldDom = document.getElementById('o-' + oldPage);
+  var newDom = document.getElementById('o-' + newPage);
+
+  if (!newDom) {
     console.error('页面不存在!');
     return;
+  } // console.log(owo.state.animation)
+  // 判断是否有动画效果
+
+
+  if (!owo.state.animation) owo.state.animation = {}; // 直接.in会在ie下报错
+
+  var animationIn = owo.state.animation['in'];
+  var animationOut = owo.state.animation['out'];
+
+  if (animationIn || animationOut) {
+    // 如果没用动画参数则使用默认效果
+    if (!animationIn || !animationOut) {
+      dispalyEffect(oldDom, newDom);
+      return;
+    }
+
+    owo.state.animation = {};
+    animation(oldDom, newDom, animationIn.split('&&'), animationOut.split('&&'), owo.state.animation['forward']);
+  } else {
+    dispalyEffect(oldDom, newDom);
   }
 
   window.owo.activePage = newPage;
 
-  _owo.handlePage(window.owo.script[newPage], newDom);
-
   _owo.handleEvent(newDom, null);
+
+  _owo.handlePage(window.owo.script[newPage], newDom);
 }
 /*
  * 传递函数给whenReady()
@@ -472,6 +619,46 @@ owo.tool.animate = function (name, dom) {
     dom.classList.remove(name);
     dom.classList.remove('owo-animated');
   }
+};
+/**
+ * 滑动检测
+ * @param  {DOM} el 需要监测的dom元素
+ * @param  {Function} start   开始事件
+ * @param  {Function} touchmove   触摸移动事件
+ * @param  {Function} end   结束事件
+ */
+
+
+owo.tool.touch = function (config) {
+  var dom = config.el; // 判断是否已经处于监听状态
+
+  if (dom.getAttribute("monitor") == 'touch') return;
+  var start = null;
+  var end = null;
+  var startTarget = null; // 设置监听标识
+
+  dom.setAttribute("monitor", "touch");
+  dom.addEventListener("touchstart", function (e) {
+    event = e.targetTouches[0] || e.originalEvent.targetTouches[0];
+    startTarget = e.target;
+    start = end = [event.clientX, event.clientY];
+    if (config.start) config.start(event);
+  }, false);
+  dom.addEventListener("touchmove", function (e) {
+    event = e.targetTouches[0] || e.originalEvent.targetTouches[0];
+    end = [event.clientX, event.clientY];
+    if (config.moveing) config.moveing(event);
+  }, false);
+  dom.addEventListener("touchend", function (e) {
+    if (config.end) {
+      config.end({
+        target: startTarget,
+        start: start,
+        end: end,
+        swipe: [end[0] - start[0], end[1] - start[1]]
+      });
+    }
+  }, false);
 };
 /* 运行页面所属的方法 */
 

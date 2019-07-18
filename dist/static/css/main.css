@@ -71,6 +71,10 @@ footer[template=copyright] {
   display: none;
 }
 
+.min {
+  min-width: unset;
+  height: 100vh;
+}
 .min .ox {
   width: 100%;
   height: 100%;

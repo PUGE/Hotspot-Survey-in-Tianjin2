@@ -10,6 +10,14 @@
     },
     created: function () {
       owo.tool.animate("zoomIn", this.query('.text')[0])
+      owo.tool.touch({
+        el: this.$el,
+        end: (e) => {
+          if (e.swipe[1] < -100) {
+            owo.go('two', 'moveToTop', 'moveFromBottom', 'moveToBottom', 'moveFromTop')
+          }
+        }
+      })
     }
   }
 </script>
