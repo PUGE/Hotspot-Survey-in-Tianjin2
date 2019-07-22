@@ -71,9 +71,11 @@ footer[template=copyright] {
   display: none;
 }
 
+
+
 .min {
-  min-width: unset;
   height: 100vh;
+  min-width: unset;
 }
 .min .ox {
   width: 100%;
@@ -98,24 +100,28 @@ footer[template=copyright] {
   background-image: url('../resource/min-two-bg.jpg');
 }
 .min .editor-note[template="editor"] {
-  width: 80%;
+  width: 90%;
   margin-top: 40vw;
-  height: 26vh;
+  height: 52vh;
   overflow: auto;
   margin-bottom: 0;
 }
 
 .min [template="editor"] p {
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
-.min .editor-note[template="editor"] img {
+.min .editor-note[template="editor"] img, .min aside[template="imageTitle"] {
   display: none;
 }
-.min aside[template="imageTitle"], .min aside[template="imageTitle1"] {
+.min aside[template="imageTitle1"] {
   height: 60px;
   position: relative;
+}
+
+.min .vote {
+  display: none;
 }
 .min aside[template="imageTitle"] img, .min aside[template="imageTitle1"] img {
   height: 40px;
@@ -208,4 +214,8 @@ footer[template=copyright] {
   margin-bottom: 10px;
   left: 0;
   right: 0;
+}
+
+.min .min-item-box {
+  display: block;
 }

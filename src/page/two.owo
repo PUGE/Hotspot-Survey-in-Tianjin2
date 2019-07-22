@@ -16,6 +16,12 @@
         p.text-3.text 您对网上群众工作平台有哪些建议？
         //- .button-3.button
         //-   a(href="", target="_blank")
+    //- 手机端才会有的内容
+    .min-item-box
+      .tip （我们也会随机抽取幸运网民，更有人民网定制小礼品赠送哦～）
+      //- 点击参与
+      a.min-button-box(href="", target="_blank")
+        img(class="min-button" src="@|button-2.png|")
 </template>
 
 <script>
@@ -101,5 +107,19 @@
 .text-3 {
   left: 740px;
   top: 80px;
+}
+.tip {
+  text-align: center;
+  color: #be2d34;
+  line-height: 40px;
+  font-size: 12px;
+}
+.min-button {
+  width: 30%;
+  margin: 5% auto;
+  display: block;
+}
+.min-item-box {
+  display: none;
 }
 </style>

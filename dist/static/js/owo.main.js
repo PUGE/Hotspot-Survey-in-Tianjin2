@@ -1,4 +1,4 @@
-// Thu Jul 18 2019 16:39:03 GMT+0800 (GMT+08:00)
+// Mon Jul 22 2019 10:42:04 GMT+0800 (GMT+08:00)
 
 "use strict";
 
@@ -360,7 +360,8 @@ _owo.showPage = function () {
 
 
 owo.go = function (pageName, inAnimation, outAnimation, backInAnimation, backOutAnimation, param) {
-  owo.state.animation = {
+  // console.log(owo.script[pageName])
+  owo.script[pageName]._animation = {
     "in": inAnimation,
     "out": outAnimation,
     "forward": true
@@ -376,19 +377,18 @@ owo.go = function (pageName, inAnimation, outAnimation, backInAnimation, backOut
 
 
     paramString = paramString.slice(0, -1);
-  }
+  } // 如果有返回动画那么设置返回动画
 
-  window.location.href = paramString + "#" + pageName; // 如果有返回动画那么设置返回动画
 
   if (backInAnimation && backOutAnimation) {
-    setTimeout(function () {
-      owo.state.animation = {
-        "in": backInAnimation,
-        "out": backOutAnimation,
-        "forward": false
-      };
-    }, 1000);
+    owo.script[owo.activePage]._animation = {
+      "in": backInAnimation,
+      "out": backOutAnimation,
+      "forward": false
+    };
   }
+
+  window.location.href = paramString + "#" + pageName;
 }; // url发生改变事件
 
 
@@ -526,10 +526,10 @@ function switchPage(oldUrlParam, newUrlParam) {
   // 判断是否有动画效果
 
 
-  if (!owo.state.animation) owo.state.animation = {}; // 直接.in会在ie下报错
+  if (!owo.script[newPage]._animation) owo.script[newPage]._animation = {}; // 直接.in会在ie下报错
 
-  var animationIn = owo.state.animation['in'];
-  var animationOut = owo.state.animation['out'];
+  var animationIn = owo.script[newPage]._animation['in'];
+  var animationOut = owo.script[newPage]._animation['out'];
 
   if (animationIn || animationOut) {
     // 如果没用动画参数则使用默认效果

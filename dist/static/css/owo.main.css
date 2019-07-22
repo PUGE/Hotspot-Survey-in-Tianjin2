@@ -215,6 +215,23 @@ aside[template="imageTitle"] {
   left: 740px;
   top: 80px;
 }
+
+[template="two"] .tip {
+  text-align: center;
+  color: #be2d34;
+  line-height: 40px;
+  font-size: 12px;
+}
+
+[template="two"] .min-button {
+  width: 30%;
+  margin: 5% auto;
+  display: block;
+}
+
+[template="two"] .min-item-box {
+  display: none;
+}
 .show[template="show"] {
   height: 85px;
   background-color: #c2c1c1;
