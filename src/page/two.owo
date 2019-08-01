@@ -111,7 +111,7 @@
 }
 .tip {
   position: absolute;
-  bottom: 21%;
+  bottom: 26%;
   width: 54%;
   margin: 0 auto;
   line-height: 20px;
@@ -133,10 +133,10 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: -8%;
+  top: -17%;
   bottom: 0;
   margin: auto;
-  width: 75%;
+  width: 81%;
 }
 .min-button-box {
   position: absolute;

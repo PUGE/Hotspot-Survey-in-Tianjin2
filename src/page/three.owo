@@ -19,7 +19,7 @@
         img(src="@|logo2.png|", height="73")
         img(src="@|logo3.png|", height="73")
         img(src="@|logo4.png|", height="73")
-      .border-title 扫一扫，下载手机客户端
+      .border-title 「扫一扫，下载手机客户端」
       .qr-box
         img(src="@|qr.jpg|")
     temple(name="copyright", src="http://154.8.196.163:8004/public/ae9b992ba8eea6a6996d4e59ff409199.page")

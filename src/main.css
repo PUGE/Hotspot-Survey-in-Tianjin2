@@ -100,15 +100,15 @@ footer[template=copyright] {
   background-image: url('@|min-one-bg.jpg|');
 }
 .min .editor-note[template="editor"] {
-  width: 63%;
-  height: 39vw;
-  overflow: auto;
+  width: 70%;
+  height: 42vw;
+  overflow: scroll;
   margin-bottom: 0;
   z-index: 9;
   position: absolute;
   left: 0;
   right: 0;
-  top: 42%;
+  top: 37%;
   margin: auto;
 }
 
@@ -215,7 +215,7 @@ footer[template=copyright] {
 
 .min footer[template=copyright] {
   position: absolute;
-  bottom: 5%;
+  bottom: 6%;
   left: 0;
   right: 0;
   margin-bottom: 0;
@@ -228,4 +228,9 @@ footer[template=copyright] {
 
 .min .min-item-box {
   display: block;
+}
+
+.min [template="three"] .qr-box {
+  text-align: center;
+  margin-bottom: 20px;
 }
