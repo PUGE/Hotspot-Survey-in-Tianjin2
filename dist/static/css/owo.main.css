@@ -45,21 +45,28 @@ li {
 }
 
 [template="one"] .text {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   position: absolute;
   left: 0;
-  right: 0;
-  top: 26%;
+  right: 10%;
+  top: 25%;
 }
 
 [template="one"] .logo {
-  width: 55%;
+  width: 37%;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10%;
+  bottom: 22%;
   margin: 0 auto;
+}
+
+[template="one"] .renmin {
+  position: absolute;
+  width: 20%;
+  left: 69%;
+  top: 11%;
 }
 .title-bar[template="topBar"] {
   height: 40px;
@@ -161,14 +168,14 @@ aside[template="imageTitle"] {
   margin-bottom: 70px;
   position: relative;
   background-position: center;
-  background-image: url('../resource/vote.png');
+  background-image: url('../../static/resource/vote.png');
 }
 
 [template="two"] .button {
   width: 146px;
   height: 35px;
   position: absolute;
-  background-image: url('../resource/button.png');
+  background-image: url('../../static/resource/button.png');
 }
 
 [template="two"] .button a {
@@ -217,20 +224,42 @@ aside[template="imageTitle"] {
 }
 
 [template="two"] .tip {
+  position: absolute;
+  bottom: 21%;
+  width: 54%;
+  margin: 0 auto;
+  line-height: 20px;
+  left: 0;
+  right: 0;
   text-align: center;
   color: #be2d34;
-  line-height: 40px;
   font-size: 12px;
 }
 
 [template="two"] .min-button {
-  width: 30%;
+  width: 36%;
   margin: 5% auto;
   display: block;
 }
 
 [template="two"] .min-item-box {
   display: none;
+}
+
+[template="two"] .text-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -8%;
+  bottom: 0;
+  margin: auto;
+  width: 75%;
+}
+
+[template="two"] .min-button-box {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
 }
 .show[template="show"] {
   height: 85px;
@@ -372,7 +401,7 @@ footer[template="copyright"] {
   text-align: center;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../resource/border.svg');
+  background-image: url('../../static/resource/border.svg');
   margin-bottom: 40px;
 }
 

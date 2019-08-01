@@ -18,7 +18,8 @@
         //-   a(href="", target="_blank")
     //- 手机端才会有的内容
     .min-item-box
-      .tip （我们也会随机抽取幸运网民，更有人民网定制小礼品赠送哦～）
+      img(class="text-box", src="@|min-two-text.png|")
+      .tip 我们也会随机抽取幸运网民<br>更有人民网定制小礼品赠送哦
       //- 点击参与
       a.min-button-box(href="", target="_blank")
         img(class="min-button" src="@|button-2.png|")
@@ -109,17 +110,37 @@
   top: 80px;
 }
 .tip {
+  position: absolute;
+  bottom: 21%;
+  width: 54%;
+  margin: 0 auto;
+  line-height: 20px;
+  left: 0;
+  right: 0;
   text-align: center;
   color: #be2d34;
-  line-height: 40px;
   font-size: 12px;
 }
 .min-button {
-  width: 30%;
+  width: 36%;
   margin: 5% auto;
   display: block;
 }
 .min-item-box {
   display: none;
+}
+.text-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -8%;
+  bottom: 0;
+  margin: auto;
+  width: 75%;
+}
+.min-button-box {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
 }
 </style>

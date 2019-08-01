@@ -97,19 +97,24 @@ footer[template=copyright] {
 
 .min .two {
   background-size: 100% 100%;
-  background-image: url('@|min-two-bg.jpg|');
+  background-image: url('@|min-one-bg.jpg|');
 }
 .min .editor-note[template="editor"] {
-  width: 90%;
-  margin-top: 40vw;
-  height: 52vh;
+  width: 63%;
+  height: 39vw;
   overflow: auto;
   margin-bottom: 0;
+  z-index: 9;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 42%;
+  margin: auto;
 }
 
 .min [template="editor"] p {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .min .editor-note[template="editor"] img, .min aside[template="imageTitle"] {
@@ -210,10 +215,15 @@ footer[template=copyright] {
 
 .min footer[template=copyright] {
   position: absolute;
-  bottom: 0;
-  margin-bottom: 10px;
+  bottom: 5%;
   left: 0;
   right: 0;
+  margin-bottom: 0;
+}
+
+.min footer[template=copyright] p {
+  font-size: 12px;
+  line-height: 20px;
 }
 
 .min .min-item-box {

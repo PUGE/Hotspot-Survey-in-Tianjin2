@@ -1,5 +1,6 @@
 <template lang="pug">
 .one
+  img(class="renmin", src="@|renmin.png|")
   img(class="text", src="@|min-one-text.png|")
   img(class="logo", src="@|logo.png|")
 </template>
@@ -24,19 +25,25 @@
 
 <style lang="less">
 .text {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   position: absolute;
   left: 0;
-  right: 0;
-  top: 26%;
+  right: 10%;
+  top: 25%;
 }
 .logo {
-  width: 55%;
+  width: 37%;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10%;
+  bottom: 22%;
   margin: 0 auto;
+}
+.renmin {
+  position: absolute;
+  width: 20%;
+  left: 69%;
+  top: 11%;
 }
 </style>
